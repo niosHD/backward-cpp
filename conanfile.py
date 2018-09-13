@@ -9,7 +9,7 @@ class BackwardCpp(ConanFile):
     version = '1.4'
     scm = {
         "type": "git",
-        "url": "https://github.com/bombela/backward-cpp.git",
+        "url": "https://github.com/niosHD/backward-cpp.git",
         "revision": "auto"
     }
 
