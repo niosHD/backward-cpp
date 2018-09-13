@@ -11,4 +11,4 @@ class TestBackward(ConanFile):
         cmake.build()
 
     def test(self):
-        self.run(os.path.join('.', 'bin', 'example'))
+        self.run(os.path.join('.', 'example'))

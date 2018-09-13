@@ -1,4 +1,4 @@
-#include <backward/backward.hpp>
+#include <backward.hpp>
 #include <iostream>
 #include <stdexcept>
 #include <sstream>

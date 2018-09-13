@@ -152,7 +152,16 @@ if (NOT _BACKWARD_DEFINITIONS)
 	map_definitions("STACK_DETAILS_" "BACKWARD_HAS_" BACKTRACE_SYMBOL DW BFD DWARF)
 endif()
 
-set(BACKWARD_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}")
+if(EXISTS "${CMAKE_CURRENT_LIST_DIR}/backward.hpp")
+  set(BACKWARD_INCLUDE_DIR "${CMAKE_CURRENT_LIST_DIR}")
+else()
+  # Assume that the config file has been installed into $DIR/lib/backward and
+  # compute the include dir into $DIR/include.
+  get_filename_component(BACKWARD_INCLUDE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+  get_filename_component(BACKWARD_INCLUDE_DIR "${BACKWARD_INCLUDE_DIR}" PATH)
+  get_filename_component(BACKWARD_INCLUDE_DIR "${BACKWARD_INCLUDE_DIR}" PATH)
+  set(BACKWARD_INCLUDE_DIR "${BACKWARD_INCLUDE_DIR}/include")
+endif()
 
 set(BACKWARD_HAS_EXTERNAL_LIBRARIES FALSE)
 set(FIND_PACKAGE_REQUIRED_VARS BACKWARD_INCLUDE_DIR)

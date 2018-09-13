@@ -56,7 +56,7 @@ endif()
 # BACKWARD OBJECT
 ###############################################################################
 
-add_library(backward_object OBJECT backward.cpp)
+add_library(backward_object OBJECT EXCLUDE_FROM_ALL backward.cpp)
 target_compile_definitions(backward_object PRIVATE ${BACKWARD_DEFINITIONS})
 target_include_directories(backward_object PRIVATE ${BACKWARD_INCLUDE_DIRS})
 set(BACKWARD_ENABLE $<TARGET_OBJECTS:backward_object> CACHE STRING
@@ -71,7 +71,7 @@ option(BACKWARD_SHARED "Build dynamic backward-cpp shared lib" OFF)
 if(BACKWARD_SHARED)
     set(libtype SHARED)
 endif()
-add_library(backward ${libtype} backward.cpp)
+add_library(backward ${libtype} EXCLUDE_FROM_ALL backward.cpp )
 target_compile_definitions(backward PUBLIC ${BACKWARD_DEFINITIONS})
 target_include_directories(backward PUBLIC ${BACKWARD_INCLUDE_DIRS})
 
