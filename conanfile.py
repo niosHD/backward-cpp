@@ -7,6 +7,7 @@ class BackwardCpp(ConanFile):
     url = 'https://github.com/bombela/backward-cpp'
     license = 'MIT'
     version = '1.4'
+    no_copy_source = True
     scm = {
         "type": "git",
         "url": "https://github.com/niosHD/backward-cpp.git",
